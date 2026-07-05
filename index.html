@@ -1,45 +1,25 @@
-el.style.top = `${posY}px`;
-
-            // Kích thước chữ to nhỏ ngẫu nhiên tạo chiều sâu
-            const fontSize = Math.floor(Math.random() * (32 - 16 + 1)) + 16;
-            el.style.fontSize = `${fontSize}px`;
-
-            // Thiết lập chuyển động ngẫu nhiên cho từng chữ
-            const moveX = (Math.random() - 0.5) * 60 + 'px';
-            const moveY = (Math.random() - 0.5) * 60 + 'px';
-            const duration = (Math.random() * 4 + 4) + 's'; 
-            const opacity = Math.random() * (0.9 - 0.5) + 0.5; 
-            const color = GLOW_COLORS[Math.floor(Math.random() * GLOW_COLORS.length)];
-            
-            el.style.setProperty('--move-x', moveX);
-            el.style.setProperty('--move-y', moveY);
-            el.style.setProperty('--duration', duration);
-            el.style.setProperty('--opacity', opacity);
-            el.style.setProperty('--glow-color', color);
-            el.style.setProperty('--scale-start', Math.random() * (1.1 - 0.9) + 0.9);
-            el.style.setProperty('--scale-end', Math.random() * (1.1 - 0.9) + 0.9);
-
-            document.body.appendChild(el);
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web của HaVy</title>
+    <style>
+        /* Nếu code của bạn có đoạn CSS (giao diện) thì dán vào đây, 
+           nếu không có thì cứ để trống phần style này */
+        body {
+            background-color: #000; /* Nền đen cho dễ nổi hiệu ứng */
+            color: #fff;
+            overflow: hidden;
+            margin: 0;
         }
+    </style>
+</head>
+<body>
 
-        function createBgGlow() {
-            for (let i = 0; i < 20; i++) {
-                const glow = document.createElement('div');
-                glow.className = 'bg-glow';
-                glow.style.left = Math.random() * window.innerWidth + 'px';
-                glow.style.top = Math.random() * window.innerHeight + 'px';
-                glow.style.animationDelay = Math.random() * 3 + 's';
-                document.body.appendChild(glow);
-            }
-        }
-
-        // Chạy hiệu ứng nền
-        createBgGlow();
+    <!-- ĐOẠN CODE HIỆU ỨNG CỦA BẠN DÁN VÀO DƯỚI ĐÂY -->
+    <script>
+        // Dán toàn bộ đoạn code "function createBgGlow()..." của bạn vào đây
         
-        // Nhân bản số lượng câu chữ lên màn hình cho dày đặc
-        for (let i = 0; i < 4; i++) {
-            MESSAGES.forEach(msg => createLoveText(msg));
-        }
     </script>
 </body>
 </html>
