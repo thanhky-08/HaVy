@@ -4,22 +4,60 @@
     <meta charset="UTF-8">
     <title>Trang web của HaVy</title>
     <style>
-        /* Nếu code của bạn có đoạn CSS (giao diện) thì dán vào đây, 
-           nếu không có thì cứ để trống phần style này */
         body {
-            background-color: #000; /* Nền đen cho dễ nổi hiệu ứng */
+            background-color: #000;
             color: #fff;
             overflow: hidden;
             margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .bg-glow {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- ĐOẠN CODE HIỆU ỨNG CỦA BẠN DÁN VÀO DƯỚI ĐÂY -->
     <script>
-        // Dán toàn bộ đoạn code "function createBgGlow()..." của bạn vào đây
-        
+        // --- ĐÂY LÀ CÁC DÒNG KHAI BÁO BIẾN CÒN THIẾU CỦA BẠN ---
+        const MESSAGES = ["Chúc HaVy luôn vui vẻ!", "Trang web lung linh quá nè!", "Happy Coding! ✨"];
+        const GLOW_COLORS = ["#ff0055", "#00ffcc", "#9900ff", "#ffcc00"];
+
+        // --- ĐOẠN CODE HIỆU ỨNG CỦA BẠN ---
+        function createBgGlow() {
+            for (let i = 0; i < 20; i++) {
+                const glow = document.createElement('div');
+                glow.className = 'bg-glow';
+                glow.style.left = Math.random() * window.innerWidth + 'px';
+                glow.style.top = Math.random() * window.innerHeight + 'px';
+                glow.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(glow);
+            }
+        }
+
+        function createLoveText(msg) {
+            const el = document.createElement('div');
+            el.innerText = msg;
+            el.style.position = 'absolute';
+            el.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            el.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            el.style.fontSize = Math.floor(Math.random() * 16) + 16 + 'px';
+            el.style.color = GLOW_COLORS[Math.floor(Math.random() * GLOW_COLORS.length)];
+            document.body.appendChild(el);
+        }
+
+        // Chạy hiệu ứng nền
+        createBgGlow();
+
+        // Nhân bản số lượng câu chữ lên màn hình cho dày đặc
+        for (let i = 0; i < 4; i++) {
+            MESSAGES.forEach(msg => createLoveText(msg));
+        }
     </script>
 </body>
 </html>
